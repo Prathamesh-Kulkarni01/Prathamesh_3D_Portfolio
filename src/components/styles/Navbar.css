@@ -45,6 +45,17 @@
   font-size: 14px;
   letter-spacing: 0.2px;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optional: Add custom styles for smooth scrolling */
+body {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
 @media only screen and (min-width: 500px) {
   .header {
     padding: 20px 0px;
