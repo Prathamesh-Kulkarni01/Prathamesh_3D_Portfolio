@@ -30,7 +30,7 @@ const Navbar = () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = this.getAttribute('href');
+        const target = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
         if (target) {
           smoothScroll(target);
         }

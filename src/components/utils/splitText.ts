@@ -1,14 +1,14 @@
 interface ParaElement extends HTMLElement {
   anim?: Animation;
-  split?: { revert: () => void };
+  split?: { words: HTMLElement[], revert: () => void };
 }
 
-const splitText = (element: HTMLElement, type: string) => {
+const splitText = (element: HTMLElement) => {
   const words = element.innerHTML.split(" ");
   element.innerHTML = words.map(word => `<span class="split-word">${word}</span>`).join(" ");
   const lines = element.querySelectorAll(".split-word");
   return {
-    words: Array.from(lines),
+    words: Array.from(lines) as HTMLElement[],
     revert: () => {
       element.innerHTML = words.join(" ");
     }
@@ -31,8 +31,6 @@ export default function setSplitText() {
   if (window.innerWidth < 900) return;
   const paras: NodeListOf<ParaElement> = document.querySelectorAll(".para");
   const titles: NodeListOf<ParaElement> = document.querySelectorAll(".title");
-
-  const TriggerStart = window.innerWidth <= 1024 ? "top 60%" : "20% 60%";
 
   const observerOptions = {
     root: null,
@@ -61,7 +59,7 @@ export default function setSplitText() {
       para.split?.revert();
     }
 
-    para.split = splitText(para, "words");
+    para.split = splitText(para);
     observer.observe(para);
   });
 
@@ -71,7 +69,7 @@ export default function setSplitText() {
       title.split?.revert();
     }
 
-    title.split = splitText(title, "chars");
+    title.split = splitText(title);
     observer.observe(title);
   });
 }
