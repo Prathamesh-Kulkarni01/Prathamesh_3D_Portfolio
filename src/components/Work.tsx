@@ -1,5 +1,5 @@
 import "./styles/Work.css";
-import WorkImage from "./WorkImage";
+// import WorkImage from "./WorkImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -105,7 +105,7 @@ const Work = () => {
         <div className="work-flex">
           {projects.map(
             (
-              { name, description, githubLink, url, image, category, skills },
+              { name, description, githubLink, url, category, skills },
               index
             ) => (
               <div className="work-box" key={index}>
