@@ -1,80 +1,77 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
-import { SplitText } from "gsap-trial/SplitText";
-
 interface ParaElement extends HTMLElement {
-  anim?: gsap.core.Animation;
-  split?: SplitText;
+  anim?: Animation;
+  split?: { revert: () => void };
 }
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
+const splitText = (element: HTMLElement, type: string) => {
+  const words = element.innerHTML.split(" ");
+  element.innerHTML = words.map(word => `<span class="split-word">${word}</span>`).join(" ");
+  const lines = element.querySelectorAll(".split-word");
+  return {
+    words: Array.from(lines),
+    revert: () => {
+      element.innerHTML = words.join(" ");
+    }
+  };
+};
+
+const animateElements = (elements: HTMLElement[], options: KeyframeAnimationOptions) => {
+  elements.forEach((element, index) => {
+    element.animate(
+      [
+        { opacity: 0, transform: "translateY(80px)" },
+        { opacity: 1, transform: "translateY(0)" }
+      ],
+      { ...options, delay: index * 50 }
+    );
+  });
+};
 
 export default function setSplitText() {
-  ScrollTrigger.config({ ignoreMobileResize: true });
   if (window.innerWidth < 900) return;
   const paras: NodeListOf<ParaElement> = document.querySelectorAll(".para");
   const titles: NodeListOf<ParaElement> = document.querySelectorAll(".title");
 
   const TriggerStart = window.innerWidth <= 1024 ? "top 60%" : "20% 60%";
-  const ToggleAction = "play pause resume reverse";
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1
+  };
+
+  const observerCallback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const element = entry.target as ParaElement;
+        if (element.split) {
+          animateElements(element.split.words, { duration: 1000, easing: "ease-out" });
+        }
+        observer.unobserve(element);
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
 
   paras.forEach((para: ParaElement) => {
     para.classList.add("visible");
     if (para.anim) {
-      para.anim.progress(1).kill();
+      para.anim.cancel();
       para.split?.revert();
     }
 
-    para.split = new SplitText(para, {
-      type: "lines,words",
-      linesClass: "split-line",
-    });
-
-    para.anim = gsap.fromTo(
-      para.split.words,
-      { autoAlpha: 0, y: 80 },
-      {
-        autoAlpha: 1,
-        scrollTrigger: {
-          trigger: para.parentElement?.parentElement,
-          toggleActions: ToggleAction,
-          start: TriggerStart,
-        },
-        duration: 1,
-        ease: "power3.out",
-        y: 0,
-        stagger: 0.02,
-      }
-    );
+    para.split = splitText(para, "words");
+    observer.observe(para);
   });
+
   titles.forEach((title: ParaElement) => {
     if (title.anim) {
-      title.anim.progress(1).kill();
+      title.anim.cancel();
       title.split?.revert();
     }
-    title.split = new SplitText(title, {
-      type: "chars,lines",
-      linesClass: "split-line",
-    });
-    title.anim = gsap.fromTo(
-      title.split.chars,
-      { autoAlpha: 0, y: 80, rotate: 10 },
-      {
-        autoAlpha: 1,
-        scrollTrigger: {
-          trigger: title.parentElement?.parentElement,
-          toggleActions: ToggleAction,
-          start: TriggerStart,
-        },
-        duration: 0.8,
-        ease: "power2.inOut",
-        y: 0,
-        rotate: 0,
-        stagger: 0.03,
-      }
-    );
-  });
 
-  ScrollTrigger.addEventListener("refresh", () => setSplitText());
+    title.split = splitText(title, "chars");
+    observer.observe(title);
+  });
 }
