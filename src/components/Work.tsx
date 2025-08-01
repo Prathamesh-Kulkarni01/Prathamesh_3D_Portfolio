@@ -9,56 +9,39 @@ gsap.registerPlugin(useGSAP);
 
 const projects = [
   {
-    name: "Potoba POS",
+    name: "RentVastu – PG Management Platform (PWA)",
     description:
-      "A powerful and intuitive Point of Sale (POS) system designed for small and medium-sized businesses. Features include inventory management, billing, reporting, and user authentication.",
-    githubLink: "https://github.com/yourusername/potoba-pos",
+      "A SaaS platform to manage PG's and rented properties. Developed a mobile-first PG management PWA using Next.js and Firebase for seamless tenant/landlord interaction. Streamlined rent, bill, and invoice tracking with dynamic Firestore schema and modular design. Onboarded 3 paying clients via Razorpay-integrated SaaS subscription model.",
+    githubLink: "https://github.com/Prathamesh-Kulkarni01/rentvastu",
+    url: "https://rentvastu.example.com",
+    image: "https://example.com/images/rentvastu.png",
+    category: "SaaS & Property Management",
+    skills: [
+      "Next.js",
+      "Firebase",
+      "Firestore",
+      "PWA",
+      "Razorpay",
+      "TypeScript",
+    ],
+  },
+  {
+    name: "Potoba POS – Restaurant POS System",
+    description:
+      "A full-stack, offline-capable POS platform powering real-time restaurant operations, adopted by 15+ cafés across Bengaluru and Maharashtra. Launched an end-to-end ordering system with QR-based digital menus, real-time KOT/KDS workflows, and bill generation. Streamlined order coordination with real-time notifications and table session tracking.",
+    githubLink: "https://github.com/Prathamesh-Kulkarni01/potoba-pos",
     url: "https://potoba-pos.example.com",
     image: "https://example.com/images/potoba-pos.png",
     category: "Retail & POS",
     skills: [
       "React Native",
-      "Redux Toolkit",
       "Node.js",
-      "MongoDB",
-      "UI Kitten",
-      "Expo",
+      "Firebase",
+      "QR Code",
+      "Real-time",
+      "Offline-capable",
     ],
   },
-  {
-    name: "Axi AI BPMN Generator",
-    description:
-      "An AI-powered tool that automatically generates BPMN processes and models by integrating OpenAI and Gemini APIs, improving workflow automation and efficiency.",
-    githubLink: "https://github.com/yourusername/axi-ai-bpmn",
-    url: "https://axi-ai.example.com",
-    image: "https://example.com/images/axi-ai.png",
-    category: "AI & Automation",
-    skills: [
-      "React.js",
-      "Node.js",
-      "TypeScript",
-      "BPMN.js",
-      "OpenAI API",
-      "Gemini API",
-    ],
-  },
-  // {
-  //   name: "BuildMart360",
-  //   description:
-  //     "An e-commerce platform for construction materials, enabling businesses to browse, compare, and purchase materials with an integrated quotation system.",
-  //   githubLink: "https://github.com/yourusername/buildmart360",
-  //   url: "https://buildmart360.example.com",
-  //   image: "https://example.com/images/buildmart360.png",
-  //   category: "E-commerce",
-  //   skills: [
-  //     "React Native",
-  //     "Firebase",
-  //     "Expo",
-  //     "Redux",
-  //     "UI Kitten",
-  //     "Stripe API",
-  //   ],
-  // },
 ];
 
 const Work = () => {

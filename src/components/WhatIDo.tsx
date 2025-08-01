@@ -87,17 +87,18 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>Frontend</h3>
+              <h3>Frontend Development</h3>
               <p>
-              Experenced in developing frontend applications
+                Building scalable, high-performance web applications with focus on developer experience and UI optimization
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">JavaScript</div>
-                <div className="what-tags">TypeScript</div>
-                <div className="what-tags">React</div>
-                <div className="what-tags">Css</div>
+                <div className="what-tags">React.js</div>
                 <div className="what-tags">Next.js</div>
+                <div className="what-tags">TypeScript</div>
+                <div className="what-tags">JavaScript</div>
+                <div className="what-tags">Tailwind CSS</div>
+                <div className="what-tags">Redux Toolkit</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -121,16 +122,18 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>Backend</h3>
+              <h3>Backend & Tools</h3>
               <p>
-              Experenced in developing backend applications
+                Full-stack development with Node.js, Express.js, and various tools for performance optimization
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
                 <div className="what-tags">Node.js</div>
                 <div className="what-tags">Express.js</div>
-                <div className="what-tags">MongoDB</div>
                 <div className="what-tags">Firebase</div>
+                <div className="what-tags">Webpack</div>
+                <div className="what-tags">Git</div>
+                <div className="what-tags">Storybook</div>
               </div>
               <div className="what-arrow"></div>
             </div>

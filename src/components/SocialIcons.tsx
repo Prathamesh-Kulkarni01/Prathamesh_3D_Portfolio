@@ -1,6 +1,5 @@
 import {
   FaGithub,
-  FaInstagram,
   FaLinkedinIn,
   FaXTwitter,
 } from "react-icons/fa6";
@@ -16,6 +15,9 @@ const SocialIcons = () => {
     social.querySelectorAll("span").forEach((item) => {
       const elem = item as HTMLElement;
       const link = elem.querySelector("a") as HTMLElement;
+
+      // Skip if link doesn't exist or doesn't have style property
+      if (!link || !link.style) return;
 
       const rect = elem.getBoundingClientRect();
       let mouseX = rect.width / 2;
@@ -70,13 +72,13 @@ const SocialIcons = () => {
           </a>
         </span>
         <span>
-          <a href="https://x.com" target="_blank">
-            <FaXTwitter />
+          <a href="https://leetcode.com/prathameshkulkarni01/" target="_blank">
+            <div style={{fontWeight: 'bold', fontSize: '18px', color: 'currentColor'}}>LC</div>
           </a>
         </span>
         <span>
-          <a href="https://www.instagram.com" target="_blank">
-            <FaInstagram />
+          <a href="https://x.com/prathameshkulkarni01" target="_blank">
+            <FaXTwitter />
           </a>
         </span>
       </div>

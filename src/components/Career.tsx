@@ -15,57 +15,42 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>SDE-1 (Fronend)</h4>
+                <h4>SDE-1 Frontend Developer</h4>
                 <h5>Axelor</h5>
               </div>
-              <h3>2023</h3>
+              <h3>02/2023 - Present</h3>
             </div>
             <p>
               <ul>
                 <li>
-                  Contributed to the development of a cutting-edge designer tool
-                  for the French Ministry of Defence, optimizing the creation of
-                  low-code ERP modules for complex operations, enhancing
-                  workflow efficiency by 40%.
+                  Developed Axelor Designer, the flagship low-code workflow automation product, leveraging React DnD-Kit to cut ERP module development time by 70% for 500+ enterprise users.
                 </li>
                 <li>
-                  Proposed and developed the Axi AI tool to automatically
-                  generate models and BPMN processes by integrating OpenAI and
-                  Gemini APIs, saving 30+ hours weekly and increasing
-                  productivity by 40%. Recognized by top leadership for
-                  innovative contributions.
+                  Designed the Axi AI interface in Next.js and built AI-driven workflow automation tools, reducing ERP module design time by 70-80%.
                 </li>
                 <li>
-                  Created and optimized RESTful services in Node.js, integrating
-                  them with the frontend, achieving a 30% reduction in server
-                  response time.
+                  Created a self-serve permission management tool with React & Redux, reducing admin workload by 70%.
                 </li>
                 <li>
-                  Designed and implemented a standalone permission management
-                  tool, increasing role management speed by 70%.
+                  Led the migration of a 50K+ LOC frontend codebase from JavaScript to TypeScript, cutting errors by 60% and speeding up releases 20%.
                 </li>
                 <li>
-                  Led the R&D and development of a BPMN merge-split tool,
-                  enhancing usability with seamless splitting and merging
-                  capabilities.
+                  Contributed to the Axelor UI component library with Storybook & Tailwind, replacing Material UI with a custom library, reducing bundle size by 20% and improving reusability across teams.
                 </li>
                 <li>
-                  Migrated JavaScript to TypeScript, integrating Axelor UI and
-                  resulting in 25% faster development cycles.
+                  Refactored Redux state management, cutting re-renders by 25% and boosting API efficiency by 25% through backend collaboration.
                 </li>
                 <li>
-                  Optimized code to reduce page load times by 20% through custom
-                  UI components, improving overall user experience.
+                  Enhanced frontend performance by 35% using React Suspense, lazy loading, and Webpack optimizations, reducing page load times.
                 </li>
                 <li>
-                  Engaged in debugging and implementing new features, which led
-                  to a 15% increase in application stability and user
-                  satisfaction.
+                  Optimized API interactions, reducing over-fetching by 50% and improving frontend-backend collaboration.
                 </li>
                 <li>
-                  Provided technical support, conducted code reviews for
-                  interns, and fostered team skill growth through mentorship and
-                  knowledge sharing.
+                  Conducted R&D on a BPMN merge-split tool, leveraging Camunda.js and BPMN.js in collaboration with the backend team.
+                </li>
+                <li>
+                  Mentored 5+ junior developers, led code reviews, and promoted best practices for scalability & performance.
                 </li>
               </ul>
             </p>
@@ -81,17 +66,13 @@ const Career = () => {
             <p>
               <ul>
                 <li>
-                  {" "}
-                  Developed Java-based android apps and assisted senior
-                  developers. Followed development standards and best practices.
+                  Developed Java-based android apps and assisted senior developers. Followed development standards and best practices.
                 </li>
                 <li>
-                  Worked with Firebase, REST API, SQL, Maps API, Payment
-                  Gateways, Git, Figma, and MVC architecture.
+                  Worked with Firebase, REST API, SQL, Maps API, Payment Gateways, Git, Figma, and MVC architecture.
                 </li>
                 <li>
-                  Led a team, gaining experience in team management, code
-                  maintenance, debugging, and deployment
+                  Led a team, gaining experience in team management, code maintenance, debugging, and deployment.
                 </li>
               </ul>
             </p>
